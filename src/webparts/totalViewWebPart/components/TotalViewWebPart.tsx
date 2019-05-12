@@ -39,8 +39,11 @@ export default class TotalViewWebPart extends React.Component<ITotalViewWebPartP
         <div className={ styles.totalViewWebPart }>
           <div className={ styles.container }>
             <div className={ styles.row }>
-              <h3 className={ styles.title }>Welcome to SharePoint Framework Webpart with React!</h3>
-              <span className={ styles.subTitle }>Integration with GITHUB & Azure Devops for CI/CD.</span>
+              <h2 className={ styles.label }>Welcome to SharePoint Framework Webpart with React!</h2>
+              <h3 className={ styles.label }>Integration with GITHUB & Azure Devops for CI/CD.</h3>
+            </div>
+            <div className={ styles.row }>
+              <span className={ styles.label }>Sum of Lists & Libraries</span>
               <ProgressIndicator className={ styles.label } label="Total Lists &amp; Libraries" description={this.state.lists.length.toString()} percentComplete={this.state.lists.length/this.state.lists.length} />
               <ProgressIndicator className={ styles.label } label="Total Libraries" description={this.state.libraries.length.toString()} percentComplete={this.state.libraries.length/this.state.lists.length} />
               <ProgressIndicator className={ styles.label } label="Total Lists" description={this.state.others.length.toString()} percentComplete={this.state.others.length/this.state.lists.length} />
