@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "total-view-web-part-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/totalViewWebPart/TotalViewWebPartWebPart.js",
+          "manifest": "./src/webparts/totalViewWebPart/TotalViewWebPartWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TotalViewWebPartWebPartStrings": "lib/webparts/totalViewWebPart/loc/{locale}.js"
+  }
+}
