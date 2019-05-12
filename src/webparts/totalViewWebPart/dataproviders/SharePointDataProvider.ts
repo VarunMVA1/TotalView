@@ -36,7 +36,7 @@ export default class SharePointDataProvider implements IDataProvider{
                     Hidden:item.Hidden,
                     BaseType:item.BaseType,
                     BaseTemplate:item.BaseTemplate
-                }  
+                };  
                 _items.push(lst);  
             }  
         }  

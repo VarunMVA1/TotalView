@@ -30,7 +30,7 @@ export default class TotalViewWebPart extends React.Component<ITotalViewWebPartP
         hiddenLists:_hiddenLists,
         libraries:_libraries,
         others:_others
-      })
+      });
     });
   }
 
