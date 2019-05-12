@@ -36,33 +36,18 @@ export default class TotalViewWebPart extends React.Component<ITotalViewWebPartP
 
   public render(): React.ReactElement<ITotalViewWebPartProps> {
       return (
-        <div >
-          <div >
-          <ProgressIndicator label="Total Lists &amp; Libraries" description={this.state.lists.length.toString()} percentComplete={this.state.lists.length/this.state.lists.length} />
-          <ProgressIndicator label="Total Libraries" description={this.state.libraries.length.toString()} percentComplete={this.state.libraries.length/this.state.lists.length} />
-          <ProgressIndicator label="Total Lists" description={this.state.others.length.toString()} percentComplete={this.state.others.length/this.state.lists.length} />
-          <ProgressIndicator label="Hidden Lists &amp; Libraries" description={this.state.hiddenLists.length.toString()} percentComplete={this.state.hiddenLists.length/this.state.lists.length} />
-            
+        <div className={ styles.totalViewWebPart }>
+          <div className={ styles.container }>
+            <div className={ styles.row }>
+              <h3 className={ styles.title }>Welcome to SharePoint Framework Webpart with React!</h3>
+              <span className={ styles.subTitle }>Integration with GITHUB & Azure Devops for CI/CD.</span>
+              <ProgressIndicator className={ styles.label } label="Total Lists &amp; Libraries" description={this.state.lists.length.toString()} percentComplete={this.state.lists.length/this.state.lists.length} />
+              <ProgressIndicator className={ styles.label } label="Total Libraries" description={this.state.libraries.length.toString()} percentComplete={this.state.libraries.length/this.state.lists.length} />
+              <ProgressIndicator className={ styles.label } label="Total Lists" description={this.state.others.length.toString()} percentComplete={this.state.others.length/this.state.lists.length} />
+              <ProgressIndicator className={ styles.label } label="Hidden Lists &amp; Libraries" description={this.state.hiddenLists.length.toString()} percentComplete={this.state.hiddenLists.length/this.state.lists.length} />
+            </div>
           </div>
         </div>
       );
     }
-
-  //   return (
-  //     <div className={ styles.totalViewWebPart }>
-  //       <div className={ styles.container }>
-  //         <div className={ styles.row }>
-  //           <div className={ styles.column }>
-  //             <span className={ styles.title }>Welcome to SharePoint Framework Webpart with Azure Devops CI & CD including Github!</span>
-  //             <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-  //             <p className={ styles.description }>{escape(this.props.description)}</p>
-  //             <a href="https://aka.ms/spfx" className={ styles.button }>
-  //               <span className={ styles.label }>Learn more</span>
-  //             </a>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
