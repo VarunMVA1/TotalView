@@ -39,10 +39,8 @@ export default class TotalViewWebPart extends React.Component<ITotalViewWebPartP
         <div className={ styles.totalViewWebPart }>
           <div className={ styles.container }>
             <div className={ styles.row }>
-              <h2 className={ styles.label }>Welcome to SharePoint Framework Webpart with React!</h2>
-            </div>
-            <div className={ styles.row }>
-              <h3 className={ styles.label }>Integration with GITHUB & Azure Devops for CI/CD.</h3>
+              <p><h2 className={ styles.label }>Welcome to SharePoint Framework Webpart with React!</h2></p>
+              <p><h3 className={ styles.label }>Integration with GITHUB & Azure Devops for CI/CD.</h3></p>
             </div>
             <div className={ styles.row }>
               <span className={ styles.label }>Sum of Lists & Libraries</span>
