@@ -1,3 +1,5 @@
+import { IDataProvider } from '../dataproviders/IDataProvider';
+
 export interface ITotalViewWebPartProps {
-  description: string;
+  provider:IDataProvider;
 }

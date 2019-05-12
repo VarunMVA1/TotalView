@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
+import { Version, Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import {
   IPropertyPaneConfiguration,
@@ -9,6 +9,9 @@ import {
 
 import * as strings from 'TotalViewWebPartWebPartStrings';
 import TotalViewWebPart from './components/TotalViewWebPart';
+import MockupDataProvider from './dataproviders/MockupDataProvider';
+import SharePointDataProvider from './dataproviders/SharePointDataProvider';
+import { IDataProvider } from './dataproviders/IDataProvider';
 import { ITotalViewWebPartProps } from './components/ITotalViewWebPartProps';
 
 export interface ITotalViewWebPartWebPartProps {
@@ -17,16 +20,26 @@ export interface ITotalViewWebPartWebPartProps {
 
 export default class TotalViewWebPartWebPart extends BaseClientSideWebPart<ITotalViewWebPartWebPartProps> {
 
-  public render(): void {
-    const element: React.ReactElement<ITotalViewWebPartProps > = React.createElement(
-      TotalViewWebPart,
-      {
-        description: this.properties.description
-      }
-    );
-
-    ReactDom.render(element, this.domElement);
+  private _dataProvider: IDataProvider;
+  protected onInit(): Promise<void>{
+    if(Environment.type === EnvironmentType.Local){  
+      this._dataProvider = new MockupDataProvider();          
+    }else{  
+      this._dataProvider = new SharePointDataProvider(this.context);  
+    }  
+    return super.onInit(); 
   }
+    public render(): void {
+      
+      const element: React.ReactElement<ITotalViewWebPartProps> = React.createElement(
+        TotalViewWebPart,
+        {
+          provider: this._dataProvider
+        }
+      );
+  
+      ReactDom.render(element, this.domElement);
+    }
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
