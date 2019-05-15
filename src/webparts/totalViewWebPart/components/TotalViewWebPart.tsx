@@ -41,13 +41,21 @@ export default class TotalViewWebPart extends React.Component<ITotalViewWebPartP
             <div className={ styles.row }>
               <p><h2 className={ styles.label }>Welcome to SharePoint Framework Webpart with React!</h2></p>
               <p><h3 className={ styles.label }>Integration with GITHUB & Azure Devops for CI/CD.</h3></p>
+              <div  className={ styles.label } >Sum of Lists & Libraries</div>
             </div>
             <div className={ styles.row }>
-              <span className={ styles.label }>Sum of Lists & Libraries</span>
-              <ProgressIndicator className={ styles.label } label="Total Lists &amp; Libraries" description={this.state.lists.length.toString()} percentComplete={this.state.lists.length/this.state.lists.length} />
-              <ProgressIndicator className={ styles.label } label="Total Libraries" description={this.state.libraries.length.toString()} percentComplete={this.state.libraries.length/this.state.lists.length} />
-              <ProgressIndicator className={ styles.label } label="Total Lists" description={this.state.others.length.toString()} percentComplete={this.state.others.length/this.state.lists.length} />
-              <ProgressIndicator className={ styles.label } label="Hidden Lists &amp; Libraries" description={this.state.hiddenLists.length.toString()} percentComplete={this.state.hiddenLists.length/this.state.lists.length} />
+              <div  className={ styles.label } >Total Lists & Libraries</div>
+              <ProgressIndicator className={ styles.label } barHeight={10} percentComplete={this.state.lists.length/this.state.lists.length} />
+              <div className={styles.label}>{this.state.lists.length.toString()}</div>
+              <div  className={ styles.label } >Total Libraries</div>
+              <ProgressIndicator className={ styles.label } barHeight={10}  percentComplete={this.state.libraries.length/this.state.lists.length} />
+              <div className={styles.label}>{this.state.libraries.length.toString()}</div>
+              <div  className={ styles.label } >Total Lists</div>
+              <ProgressIndicator className={ styles.label } barHeight={10}  percentComplete={this.state.others.length/this.state.lists.length} />
+              <div className={styles.label}> { this.state.others.length.toString() } </div>
+              <div  className={ styles.label }>Hidden Lists & Libraries</div>
+              <ProgressIndicator className={ styles.label } barHeight={10}  percentComplete={this.state.hiddenLists.length/this.state.lists.length} />
+              <div className={styles.label}> { this.state.hiddenLists.length.toString() } </div>
             </div>
           </div>
         </div>
